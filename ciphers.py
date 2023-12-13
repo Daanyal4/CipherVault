@@ -11,6 +11,9 @@ import route_cipher
 import beaufort_cipher
 
 def print_cipher_list():
+    """
+    Print a list of available ciphers along with their descriptions.
+    """
     print("Available Ciphers:")
     print("1. Caesar Cipher: Simple substitution with a fixed shift.")
     print("2. Multiplicative Cipher: A substitution cipher using multiplication.")
@@ -25,6 +28,9 @@ def print_cipher_list():
     print("11. Beaufort Cipher: A reciprocal cipher based on the Vigenère cipher.")
 
 def select_cipher(choice):
+    """
+    Select and return the cipher module based on the user's choice.
+    """
     ciphers = {
         1: caesar_cipher,
         2: multiplicative_cipher,
@@ -41,6 +47,9 @@ def select_cipher(choice):
     return ciphers.get(choice)
 
 def get_cipher_operation():
+    """
+    Get the user's choice for encryption or decryption operation.
+    """
     print("Choose an operation:")
     print("1. Encrypt")
     print("2. Decrypt")
@@ -48,6 +57,9 @@ def get_cipher_operation():
     return choice
 
 def get_key_description(cipher_choice):
+    """
+    Return the description of the key for the selected cipher.
+    """
     key_descriptions = {
         1: "Shift value (0-25)",
         2: "Multiplication factor (must be coprime with 26)",
@@ -64,31 +76,43 @@ def get_key_description(cipher_choice):
     return key_descriptions.get(cipher_choice, "Key description not available")
 
 def perform_cipher_operation(cipher, operation, text, key, cipher_choice):
+    """
+    Perform the encryption or decryption operation based on the user's choice.
+    """
     ciphers_requiring_int_key = [1, 2, 3, 5, 10]
     
     if operation == 1:
         if cipher_choice in ciphers_requiring_int_key:
-            key = int(key)
+            key = int(input("Enter the key (an integer): "))
 
         return cipher.encrypt(text, key)
     elif operation == 2:
         if cipher_choice in ciphers_requiring_int_key:
-            key = int(key)
+            key = int(input("Enter the key (an integer): "))
 
         return cipher.decrypt(text, key)
 
 def get_cipher_input():
+    """
+    Main function to get user input and perform cipher operations.
+    """
     while True:
         print_cipher_list()
         choice = int(input("Enter the number of the cipher: "))
+
         cipher_choice = choice
         cipher = select_cipher(choice)
+
         if cipher:
             operation = get_cipher_operation()
             key_description = get_key_description(cipher_choice)
             print(f"Key Description: {key_description}")
-            key = input("Enter the key: ")
+
+            key_input_prompt = f"Enter the key ({key_description}): "
+            key = input(key_input_prompt)
+
             text = input("Enter the text: ")
+
             result = perform_cipher_operation(cipher, operation, text, key, cipher_choice)
             print("Result:")
             print(result)

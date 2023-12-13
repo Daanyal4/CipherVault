@@ -1,4 +1,7 @@
-def encrypt(plain_text, key):
+def encrypt(plain_text: str, key: str) -> str:
+    """
+    Encrypt the given plaintext using the Vigenere cipher with the provided key.
+    """
     key = key.upper()
     key_len = len(key)
     encrypted_text = ""
@@ -17,7 +20,10 @@ def encrypt(plain_text, key):
 
     return encrypted_text
 
-def decrypt(cipher_text, key):
+def decrypt(cipher_text: str, key: str) -> str:
+    """
+    Decrypt the given ciphertext using the Vigenere cipher with the provided key.
+    """
     key = key.upper()
     key_len = len(key)
     decrypted_text = ""

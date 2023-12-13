@@ -1,4 +1,7 @@
 def encrypt(plain_text, key):
+    """
+    Encrypt the given plaintext using the columnar transposition cipher with the provided key.
+    """
     key_order = sorted(range(len(key)), key=lambda k: key[k])
     encrypted_text = ""
 
@@ -10,6 +13,12 @@ def encrypt(plain_text, key):
     return encrypted_text
 
 def decrypt(cipher_text, key):
+    """
+    Decrypt the given ciphertext using the columnar transposition cipher with the provided key.
+    """
+    if not key or len(set(key)) != len(key):
+        return "Invalid key: Key must be non-empty and contain unique characters."
+    
     key_order = sorted(range(len(key)), key=lambda k: key[k])
     cols = len(key)
     rows = -(-len(cipher_text) // cols)  # Ceiling division

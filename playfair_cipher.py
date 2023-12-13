@@ -1,4 +1,7 @@
 def build_playfair_matrix(key):
+    """
+    Build a Playfair cipher key matrix using the provided key.
+    """
     key = key.replace(" ", "").upper()
     alphabet = "ABCDEFGHIKLMNOPQRSTUVWXYZ"  # Note: 'J' is omitted in the Playfair cipher
 
@@ -22,6 +25,9 @@ def build_playfair_matrix(key):
     return matrix
 
 def find_char_positions(matrix, char):
+    """
+    Find the positions of a character in the Playfair matrix.
+    """
     positions = []
     for row in range(5):
         for col in range(5):
@@ -30,6 +36,9 @@ def find_char_positions(matrix, char):
     return positions
 
 def encrypt(plain_text, key):
+    """
+    Encrypt the given plaintext using the Playfair cipher with the provided key.
+    """
     key_matrix = build_playfair_matrix(key)
     plain_text = plain_text.replace(" ", "").upper()
     encrypted_text = ""

@@ -1,4 +1,7 @@
-def encrypt(plain_text, key):
+def encrypt(plain_text: str, key: str) -> str:
+    """
+    Encrypt the given plaintext using the Beaufort cipher with the provided key.
+    """
     key = key.upper()
     encrypted_text = ""
 
@@ -15,4 +18,8 @@ def encrypt(plain_text, key):
     return encrypted_text
 
 def decrypt(cipher_text, key):
-    return encrypt(cipher_text, key)  # Beaufort encryption and decryption are the same
+    """
+    Decrypt the given ciphertext using the Beaufort cipher with the provided key.
+    """
+    # Beaufort encryption and decryption are the same
+    return encrypt(cipher_text, key)  
