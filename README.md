@@ -34,26 +34,31 @@ To run this project, you need to have the following installed:
     python3 main.py
     ```
 
-2. Cipher Vault will display a menu with the following options:
+2. Cipher Vault will display an introductory message.
+
+3. You will see the following menu:
 
     ```
-    For text encryption/decryption choose 1
-    To exit choose 2
+    Menu:
+    E. Text Encryption/Decryption
+    X. Exit
     ```
 
-3. Select option `1` to choose a cipher from a list of classic ciphers.
+4. Enter your choice (E or X) to either explore ciphers or exit the program.
 
-4. Choose your desired cipher and follow the on-screen instructions to:
+5. If you choose `E` to explore ciphers, you will be presented with a list of classic ciphers.
 
-    - Select an operation (encryption or decryption).
+6. Select your desired cipher and follow the on-screen instructions to:
+
+    - Choose an operation (encryption or decryption).
     - Provide the text to be processed.
     - Enter the required key or information.
 
-5. Cipher Vault will perform the operation and display the result.
+7. Cipher Vault will perform the operation and display the result.
 
-6. Repeat steps 3-5 to explore different ciphers and operations.
+8. Repeat steps 5-7 to explore different ciphers and operations.
 
-7. To exit Cipher Vault, select option `2`.
+9. To exit Cipher Vault, select option `X`.
 
 ## Contribution
 
@@ -65,4 +70,3 @@ If you'd like to contribute to this project, please feel free to:
 ## Author
 
 - **Daanyal Vali** (https://github.com/Daanyal4)
-
